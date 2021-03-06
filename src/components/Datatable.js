@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import { Table } from 'react-bootstrap';
-import { TableHead, TableRow } from '../components map/Components'
+import { Table, Row, Col } from 'react-bootstrap';
+import { TableHead, TableRow, Search } from '../components map/Components'
 
 
 function Datatable() {
@@ -27,13 +27,30 @@ function Datatable() {
     }, [])
 
     return (
-        <Table striped bordered hover>
-            <TableHead name={"Name"} capital={"Capital"} flag={"Flag"} />
-            <tbody>
-                {tableData}
-            </tbody>
-        </Table>
+        <div className="datatable">
+            <Row>
+                <Col>
+                    <Search />
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Table striped bordered hover>
+                        <TableHead name={"Name"} capital={"Capital"} flag={"Flag"} />
+                        <tbody>
+                            {tableData}
+                        </tbody>
+                    </Table>
+                </Col>
+            </Row>
+        </div>
     )
+}
+
+
+
+function test() {
+
 }
 
 export default Datatable
