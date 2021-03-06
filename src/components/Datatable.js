@@ -5,31 +5,23 @@ import { TableHead, TableRow, Search } from '../components map/Components'
 
 
 function Datatable() {
-    // eslint-disable-next-line
-    const [allData, setallData] = useState([])
     const [tableData, settableData] = useState([])
 
     useEffect(() => {
         axios.get(`https://restcountries.eu/rest/v2/all`)
             .then(function ({ data }) {
-                // eslint-disable-next-line
                 const allRadio = document.getElementById("allRadio")
                 const capitalRadio = document.getElementById("capitalRadio")
                 const searchInput = document.getElementById("searchInput")
-                // eslint-disable-next-line
                 const harfDuyarli = document.getElementById("harfDuyarli")
                 const tableDataTemp = []
 
-                setallData(data)
-
-                /* console.log(data) */
                 data.forEach((e, i) => {
                     const temp = <TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />
                     tableDataTemp.push(temp)
                 });
                 settableData(tableDataTemp)
 
-                /* console.dir(allRadio) */
 
                 searchInput.addEventListener("input", function () {
                     if (capitalRadio.checked) {
@@ -38,17 +30,22 @@ function Datatable() {
                         else
                             settableData(capitalFilter(data, searchInput.value))
                     }
+                    else if (allRadio.checked) {
+                        if (harfDuyarli.checked)
+                            settableData(allFilter(data, searchInput.value, true))
+                        else
+                            settableData(allFilter(data, searchInput.value))
+
+                    }
                     else {
                         alert("Lüften arama türünü seçin.")
                         searchInput.value = ""
                     }
                 })
-
             })
             .catch(function (error) {
                 console.log(error)
             })
-
     }, [])
 
     return (
@@ -76,20 +73,43 @@ function Datatable() {
 function capitalFilter(data, value, harfduyar) {
     const tableDataTemp = []
     if (harfduyar) {
+        data.filter(name => name.capital.includes(value)).forEach((e, i) => {
+            const temp = <TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />
+            tableDataTemp.push(temp)
+        })
+    }
+    else {
         value = value.toLowerCase()
         data.filter(name => name.capital.toLowerCase().includes(value)).forEach((e, i) => {
             const temp = <TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />
             tableDataTemp.push(temp)
         })
     }
-    else {
-        data.filter(name => name.capital.includes(value)).forEach((e, i) => {
-            const temp = <TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />
-            tableDataTemp.push(temp)
+
+    if (tableDataTemp.length === 0) { return <TableRow name={"İçerik bulunamadı"} /> }
+    else { return tableDataTemp }
+}
+function allFilter(data, value, harfduyar) {
+    const tableDataTemp = []
+    if (harfduyar) {
+        data.forEach((e, i) => {
+            const tt = JSON.stringify(e)
+            if (tt.includes(value)) {
+                tableDataTemp.push(<TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />)
+            }
         })
     }
-
-    return tableDataTemp
+    else {
+        value = value.toLowerCase()
+        data.forEach((e, i) => {
+            const tt = JSON.stringify(e).toLowerCase()
+            if (tt.includes(value)) {
+                tableDataTemp.push(<TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />)
+            }
+        })
+    }
+    if (tableDataTemp.length === 0) { return <TableRow name={"İçerik bulunamadı"} /> }
+    else { return tableDataTemp }
 }
 
 
