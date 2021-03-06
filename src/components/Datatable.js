@@ -34,6 +34,8 @@ function Datatable() {
                 searchInput.addEventListener("input", function () {
                     if (capitalRadio.checked) {
                         if (harfDuyarli.checked)
+                            settableData(capitalFilter(data, searchInput.value, true))
+                        else
                             settableData(capitalFilter(data, searchInput.value))
                     }
                     else {
@@ -73,10 +75,20 @@ function Datatable() {
 
 function capitalFilter(data, value, harfduyar) {
     const tableDataTemp = []
-    data.filter(name => name.capital.includes(value)).forEach((e, i) => {
-        const temp = <TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />
-        tableDataTemp.push(temp)
-    })
+    if (harfduyar) {
+        value = value.toLowerCase()
+        data.filter(name => name.capital.toLowerCase().includes(value)).forEach((e, i) => {
+            const temp = <TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />
+            tableDataTemp.push(temp)
+        })
+    }
+    else {
+        data.filter(name => name.capital.includes(value)).forEach((e, i) => {
+            const temp = <TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />
+            tableDataTemp.push(temp)
+        })
+    }
+
     return tableDataTemp
 }
 
