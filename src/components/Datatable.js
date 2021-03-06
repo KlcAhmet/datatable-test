@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
+import { Table } from 'react-bootstrap';
 
 
 function Datatable() {
@@ -8,7 +9,7 @@ function Datatable() {
     useEffect(() => {
         axios.get(`https://restcountries.eu/rest/v2/all`)
             .then(function ({ data }) {
-                console.log(data)
+                /* console.log(data) */
             })
             .catch(function (error) {
                 console.log(error)
@@ -16,7 +17,35 @@ function Datatable() {
     }, [])
 
     return (
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae voluptatem distinctio quos laboriosam deleniti nostrum odit a asperiores. Aperiam ad nisi quos iusto quod? Vero aperiam cumque cum ratione quis?</p>
+        <Table striped bordered hover>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td colSpan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </Table>
     )
 }
 
