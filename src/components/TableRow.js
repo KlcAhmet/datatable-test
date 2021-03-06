@@ -1,7 +1,10 @@
-function TableRow() {
-
+function TableRow({ key, name, capital, flag }) {
     return (
-        <p>test</p>
+        <tr key={key}>
+            <td>{name}</td>
+            <td>{capital}</td>
+            <td>{flag}</td>
+        </tr>
     )
 }
 
