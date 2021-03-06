@@ -1,9 +1,11 @@
-function TableRow({ key, name, capital, flag }) {
+import { Flag } from '../components map/Components'
+
+function TableRow({ name, capital, flag }) {
     return (
-        <tr key={key}>
+        <tr >
             <td>{name}</td>
             <td>{capital}</td>
-            <td>{flag}</td>
+            <td><Flag src={flag} /></td>
         </tr>
     )
 }
