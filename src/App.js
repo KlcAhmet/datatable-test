@@ -3,7 +3,7 @@ import {
   Switch,
   Route
 } from "react-router-dom"
-import { Button, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 /* Compoents */
 import { Datatable } from '../src/components map/PageComponent'
 /* CSS */
@@ -14,11 +14,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Container>
+        <Container>
+          <Switch>
             <Route path="/" component={Datatable} />
-          </Container>
-        </Switch>
+          </Switch>
+        </Container>
       </Router >
     </div>
   );
