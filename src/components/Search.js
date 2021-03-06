@@ -6,6 +6,7 @@ function Search() {
         <div className="mb-3">
             <InputGroup>
                 <FormControl
+                    id="searchInput"
                     placeholder="Aranacak değeri yazın"
                 />
                 <InputGroup.Append>
@@ -27,6 +28,13 @@ function Search() {
                                     label="Capital"
                                     type="radio"
                                     id="capitalRadio"
+                                />
+                                <Form.Check
+                                    custom
+                                    inline
+                                    label="Harf Duyarlı"
+                                    type="checkbox"
+                                    id="harfDuyarli"
                                 />
                             </Form>
                         </fieldset>
