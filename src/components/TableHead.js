@@ -1,11 +1,10 @@
-function TableHead() {
+function TableHead({ name, capital, flag }) {
     return (
         <thead>
             <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>{name}</th>
+                <th> {capital}</th>
+                <th>{flag}</th>
             </tr>
         </thead>
     )
