@@ -9,3 +9,20 @@
     /*  &__input {}
     &__check {} */
 }
+
+@media screen and (max-width: 600px) {
+    .search {
+        .input-group {
+            display: flex !important;
+            flex-direction: column;
+        }
+        &__input {
+            width: 100% !important;
+        }
+        &__check {
+            span {
+                width: 100% !important;
+            }
+        }
+    }
+}
