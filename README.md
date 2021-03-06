@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# About The Project
+**Data Table Test**
+
+ -  [View Demo on Github](https://klcahmet.github.io/datatable-test/)
+## Overview
+![enter image description here](https://raw.githubusercontent.com/KlcAhmet/datatable-test/master/screenshot/Screenshot_4.png)
+
+![enter image description here](https://raw.githubusercontent.com/KlcAhmet/datatable-test/master/screenshot/Screenshot_5.png)
+
+## Get Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+```
+npm install axios
+npm install --save react-router-dom
+npm install --save bootstrap
+npm install react-bootstrap bootstrap
+```
 
-In the project directory, you can run:
+## Database
 
-### `npm start`
+ - https://restcountries.eu/
+ - https://restcountries.eu/rest/v2/all
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Search Functions
+```
+/* Capital search function */
+function  capitalFilter(data, value, harfduyar) {
+const  tableDataTemp = []
+if (harfduyar) {
+data.filter(name  =>  name.capital.includes(value)).forEach((e, i) => {
+const  temp = <TableRow  key={i}  name={e.name}  capital={e.capital}  flag={e.flag}  />
+tableDataTemp.push(temp)})
+}
+else {
+value = value.toLowerCase()
+data.filter(name  =>  name.capital.toLowerCase().includes(value)).forEach((e, i) => {
+const  temp = <TableRow  key={i}  name={e.name}  capital={e.capital}  flag={e.flag}  />
+tableDataTemp.push(temp)
+})
+}
+if (tableDataTemp.length === 0) { return  <TableRow  name={"İçerik bulunamadı"}  /> }
+else { return  tableDataTemp }
+}
+```
+```
+/* all search function */
+function  allFilter(data, value, harfduyar) {
+const  tableDataTemp = []
+if (harfduyar) {
+data.forEach((e, i) => {
+const  tt = JSON.stringify(e)
+if (tt.includes(value)) {
+tableDataTemp.push(<TableRow  key={i}  name={e.name}  capital={e.capital}  flag={e.flag}  />)
+}})
+}
+else {
+value = value.toLowerCase()
+data.forEach((e, i) => {
+const  tt = JSON.stringify(e).toLowerCase()
+if (tt.includes(value)) {
+tableDataTemp.push(<TableRow  key={i}  name={e.name}  capital={e.capital}  flag={e.flag}  />)}})
+}
+if (tableDataTemp.length === 0) { return  <TableRow  name={"İçerik bulunamadı"}  /> }
+else { return  tableDataTemp }
+}
+```
 
-### `npm test`
+## Search Selection
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - **All:** Searching all keys
+ - **Capital:** Searching only on capital
+ - **Harf Duyarlı:** Letter sensivity
