@@ -4,13 +4,13 @@ function Search() {
 
     return (
         <div className="search">
-            <InputGroup className="search__group">
+            <InputGroup>
                 <FormControl
-                    className="search__group__input"
+                    className="search__input"
                     id="searchInput"
                     placeholder="Aranacak değeri yazın"
                 />
-                <InputGroup.Append className="search__group__check">
+                <InputGroup.Append className="search__check">
                     <InputGroup.Text>
                         <fieldset>
                             <Form>
