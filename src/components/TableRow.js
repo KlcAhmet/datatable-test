@@ -5,7 +5,7 @@ function TableRow({ name, capital, flag }) {
         <tr >
             <td>{name}</td>
             <td>{capital}</td>
-            <td><Flag src={flag} /></td>
+            <td><Flag src={flag} cls="" /></td>
         </tr>
     )
 }
