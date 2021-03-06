@@ -4,7 +4,8 @@ import {
   Route
 } from "react-router-dom"
 import { Button, Container, Row } from 'react-bootstrap';
-
+/* Compoents */
+import { Datatable } from '../src/components map/PageComponent'
 /* CSS */
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,10 +17,7 @@ function App() {
         <Switch>
           <Container>
             <Row>
-              <Route path="/">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eaque architecto at quis accusantium ut, a quod ullam delectus dolore, cum error dignissimos odio rerum, eos aut iste veritatis? Quia!
-                <Button>test</Button>
-              </Route>
+              <Route path="/" component={Datatable} />
             </Row>
           </Container>
         </Switch>
