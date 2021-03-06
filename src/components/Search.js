@@ -3,13 +3,14 @@ import { InputGroup, FormControl, Form } from 'react-bootstrap';
 function Search() {
 
     return (
-        <div className="mb-3">
-            <InputGroup>
+        <div className="search">
+            <InputGroup className="search__group">
                 <FormControl
+                    className="search__group__input"
                     id="searchInput"
                     placeholder="Aranacak değeri yazın"
                 />
-                <InputGroup.Append>
+                <InputGroup.Append className="search__group__check">
                     <InputGroup.Text>
                         <fieldset>
                             <Form>
