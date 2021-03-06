@@ -5,39 +5,32 @@ import { TableHead, TableRow } from '../components map/Components'
 
 
 function Datatable() {
-    const [AllData, setAllData] = useState([])
+    const [allData, setallData] = useState([])
+    const [tableData, settableData] = useState([])
 
     useEffect(() => {
         axios.get(`https://restcountries.eu/rest/v2/all`)
             .then(function ({ data }) {
+                const tableDataTemp = []
+                setallData(data)
                 /* console.log(data) */
+                data.forEach((e, i) => {
+                    const temp = <TableRow key={i} name={e.name} capital={e.capital} flag={e.flag} />
+                    tableDataTemp.push(temp)
+                });
+                settableData(tableDataTemp)
             })
             .catch(function (error) {
                 console.log(error)
             })
+
     }, [])
 
     return (
         <Table striped bordered hover>
-            <TableHead />
+            <TableHead name={"Name"} capital={"Capital"} flag={"Flag"} />
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td colSpan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                {tableData}
             </tbody>
         </Table>
     )
