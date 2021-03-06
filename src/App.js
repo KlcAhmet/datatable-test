@@ -15,9 +15,11 @@ function App() {
     <div className="App">
       <Router>
         <Container>
-          <Switch>
-            <Route path="/" component={Datatable} />
-          </Switch>
+          <main>
+            <Switch>
+              <Route path="/" component={Datatable} />
+            </Switch>
+          </main>
         </Container>
       </Router >
     </div>
