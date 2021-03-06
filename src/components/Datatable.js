@@ -12,6 +12,7 @@ function Datatable() {
     useEffect(() => {
         axios.get(`https://restcountries.eu/rest/v2/all`)
             .then(function ({ data }) {
+                /* variables */
                 const allRadio = document.getElementById("allRadio")
                 const capitalRadio = document.getElementById("capitalRadio")
                 const searchInput = document.getElementById("searchInput")
@@ -24,6 +25,7 @@ function Datatable() {
                 });
                 settableData(tableDataTemp)
 
+                /* search listener */
                 searchInput.addEventListener("input", function () {
                     if (capitalRadio.checked) {
                         if (harfDuyarli.checked)
@@ -76,7 +78,7 @@ function Datatable() {
     )
 }
 
-
+/* Capital search function */
 function capitalFilter(data, value, harfduyar) {
     const tableDataTemp = []
     if (harfduyar) {
@@ -96,6 +98,8 @@ function capitalFilter(data, value, harfduyar) {
     if (tableDataTemp.length === 0) { return <TableRow name={"İçerik bulunamadı"} /> }
     else { return tableDataTemp }
 }
+
+/* all search function */
 function allFilter(data, value, harfduyar) {
     const tableDataTemp = []
     if (harfduyar) {
