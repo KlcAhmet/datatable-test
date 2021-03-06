@@ -1,4 +1,4 @@
-import { Col, InputGroup, FormControl, Form } from 'react-bootstrap';
+import { InputGroup, FormControl, Form } from 'react-bootstrap';
 
 function Search() {
 
@@ -15,6 +15,7 @@ function Search() {
                                 <Form.Check
                                     custom
                                     inline
+                                    name="groupOptions"
                                     label="All"
                                     type="radio"
                                     id="allRadio"
@@ -22,6 +23,7 @@ function Search() {
                                 <Form.Check
                                     custom
                                     inline
+                                    name="groupOptions"
                                     label="Capital"
                                     type="radio"
                                     id="capitalRadio"
