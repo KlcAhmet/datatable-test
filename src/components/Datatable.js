@@ -22,7 +22,6 @@ function Datatable() {
                 });
                 settableData(tableDataTemp)
 
-
                 searchInput.addEventListener("input", function () {
                     if (capitalRadio.checked) {
                         if (harfDuyarli.checked)
@@ -52,17 +51,23 @@ function Datatable() {
         <div className="datatable">
             <Row>
                 <Col>
-                    <Search />
+                    <section>
+                        <Search />
+                    </section>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <Table striped bordered hover>
-                        <TableHead name={"Name"} capital={"Capital"} flag={"Flag"} />
-                        <tbody>
-                            {tableData}
-                        </tbody>
-                    </Table>
+                    <section>
+                        <div className="overflow-auto">
+                            <Table striped bordered hover className="table">
+                                <TableHead name={"Name"} capital={"Capital"} flag={"Flag"} />
+                                <tbody>
+                                    {tableData}
+                                </tbody>
+                            </Table>
+                        </div>
+                    </section>
                 </Col>
             </Row>
         </div>
