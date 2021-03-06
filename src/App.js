@@ -16,9 +16,7 @@ function App() {
       <Router>
         <Switch>
           <Container>
-            <Row>
-              <Route path="/" component={Datatable} />
-            </Row>
+            <Route path="/" component={Datatable} />
           </Container>
         </Switch>
       </Router >
