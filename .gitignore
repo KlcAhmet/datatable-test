@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/css/page.css
+src/css/page.css.map
+.gitignore
