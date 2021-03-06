@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/datatable-test/static/css/main.9724c3bf.chunk.css",
+    "main.js": "/datatable-test/static/js/main.2b744bb0.chunk.js",
+    "main.js.map": "/datatable-test/static/js/main.2b744bb0.chunk.js.map",
+    "runtime-main.js": "/datatable-test/static/js/runtime-main.7864d771.js",
+    "runtime-main.js.map": "/datatable-test/static/js/runtime-main.7864d771.js.map",
+    "static/css/2.fabbef47.chunk.css": "/datatable-test/static/css/2.fabbef47.chunk.css",
+    "static/js/2.aa4a93d6.chunk.js": "/datatable-test/static/js/2.aa4a93d6.chunk.js",
+    "static/js/2.aa4a93d6.chunk.js.map": "/datatable-test/static/js/2.aa4a93d6.chunk.js.map",
+    "static/js/3.dcbca766.chunk.js": "/datatable-test/static/js/3.dcbca766.chunk.js",
+    "static/js/3.dcbca766.chunk.js.map": "/datatable-test/static/js/3.dcbca766.chunk.js.map",
+    "index.html": "/datatable-test/index.html",
+    "static/css/2.fabbef47.chunk.css.map": "/datatable-test/static/css/2.fabbef47.chunk.css.map",
+    "static/css/main.9724c3bf.chunk.css.map": "/datatable-test/static/css/main.9724c3bf.chunk.css.map",
+    "static/js/2.aa4a93d6.chunk.js.LICENSE.txt": "/datatable-test/static/js/2.aa4a93d6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7864d771.js",
+    "static/css/2.fabbef47.chunk.css",
+    "static/js/2.aa4a93d6.chunk.js",
+    "static/css/main.9724c3bf.chunk.css",
+    "static/js/main.2b744bb0.chunk.js"
+  ]
+}
